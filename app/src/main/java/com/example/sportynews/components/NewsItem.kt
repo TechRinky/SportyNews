@@ -16,6 +16,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalContext
+import androidx.compose.ui.platform.testTag
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.dp
 import coil.compose.AsyncImage
@@ -44,7 +45,8 @@ fun NewsItem(article: NewsArticle, onClick: () -> Unit) {
             )
             Spacer(modifier = Modifier.width(12.dp))
             Column {
-                Text(article.title, style = MaterialTheme.typography.titleMedium)
+                Text(article.title, style = MaterialTheme.typography.titleMedium,
+                    modifier = Modifier.testTag("news_title_${article.title}"))
                 Spacer(modifier = Modifier.height(4.dp))
                 article.description?.let { Text(it, maxLines = 2, overflow = TextOverflow.Ellipsis) }
             }

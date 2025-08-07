@@ -20,6 +20,7 @@ import androidx.compose.material3.TopAppBar
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalContext
+import androidx.compose.ui.platform.testTag
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.dp
 import androidx.navigation.NavController
@@ -35,7 +36,7 @@ fun NewsDetailScreen(article: NewsArticle, navController: NavController) {
             TopAppBar(title = {
                 Text(
                     article.title,
-                    modifier = Modifier.padding(15.dp),
+                    modifier = Modifier.padding(15.dp).testTag("articleTitle"),
                     maxLines = 2,
                     overflow = TextOverflow.Ellipsis
                 )
